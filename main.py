@@ -1,8 +1,7 @@
 import os
-from flask import Flask,render_template,request,flash
+from flask import Flask, render_template, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
 import cv2
-
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
@@ -63,7 +62,7 @@ def edit():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             newFilename = processImage(filename,op)
             flash(f"Your file has been Processed and availble here <a href='/{newFilename}' target='_blank'>here</a>")
-            return render_template("index.html")
+            return redirect(url_for('home'))
           
     return render_template("index.html")
 
