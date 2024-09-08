@@ -1,4 +1,4 @@
-# Flask Image Processing Web Application
+# ImageMorph - Flask Image Processing Web App
 
 ## Overview
 
